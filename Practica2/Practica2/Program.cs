@@ -10,8 +10,7 @@ namespace Practica2
     {
         static void Main(string[] args)
         {
-            int horas = 0, minutos = 0, segundos = 0,opc = 0,salir = 0;
-            
+            int horas = 0, minutos = 0, segundos = 0,opc = 0;
             do
             {
                 System.Console.WriteLine("Opciones de Tiempo");
@@ -23,25 +22,27 @@ namespace Practica2
                 switch (opc)
                 {
                     case 1: System.Console.Clear();
-                       System.Console.WriteLine("Cronometro");
                         for (horas = 0; horas < 24; horas++)
                             for (minutos = 0; minutos < 60; minutos++)
                                 for (segundos = 0; segundos < 60; segundos++)
                                 {System.Console.WriteLine("{0}:{1}:{2}", horas, minutos, segundos);
-                                
-                                    
-                           
-                        Thread.Sleep(1000);
+                                System.Console.WriteLine("CTRL + C para salir");
+                                Thread.Sleep(1000);
                         System.Console.Clear();}
- 
-
-
+                        break;
+                    case 2: System.Console.Clear();
+                        DateTime reloj = DateTime.Now;
+                        for (horas = reloj.Hour; horas < 24; horas++)
+                            for (minutos = reloj.Minute; minutos < 60; minutos++)
+                                for (segundos = reloj.Second; segundos < 60; segundos++){
+                                reloj = DateTime.Now;
+                                System.Console.WriteLine("la hora es {0}:{1}:{2}",reloj.Hour, reloj.Minute, reloj.Second);
+                                 System.Console.WriteLine("CTRL + C para salir");
+                                Thread.Sleep(1000);
+                        System.Console.Clear();}
                         break;
                 }
             } while (opc != 0);
-            
-
-
         }
     }
 }
